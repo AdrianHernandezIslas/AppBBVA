@@ -19,7 +19,7 @@ import vista.VistaPrincipal;
 public class ControladorInicioSesion extends MouseAdapter implements ActionListener{
     
     private Vista vistaInicio;
-    private final String contrasenia = "1";
+    private final String contrasenia = "12345";
     private int contador;
 
     public ControladorInicioSesion(Vista vistaInicio) {
@@ -37,6 +37,7 @@ public class ControladorInicioSesion extends MouseAdapter implements ActionListe
             
          }else if(contador<3){
              contador++;
+             vistaInicio.getEtiquetaMensaje().setText("¡Datos introducidos incorrectos!");
              vistaInicio.getEtiquetaMensaje().setVisible(true);
          }
          if(contador > 2){
@@ -44,13 +45,12 @@ public class ControladorInicioSesion extends MouseAdapter implements ActionListe
              System.exit(0);
          }
          
-         System.out.println(contador);
-         
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        System.out.println(contrasenia);
+        vistaInicio.getEtiquetaMensaje().setText("Contraseña: "+contrasenia);
+        vistaInicio.getEtiquetaMensaje().setVisible(true);
     }
 
     

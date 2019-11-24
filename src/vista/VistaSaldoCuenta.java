@@ -6,7 +6,6 @@
 package vista;
 
 import controlador.ControladorVistaSaldoCuenta;
-import vista.extras.PanelMovimiento;
 import vista.extras.Imagen;
 import vista.extras.Colores;
 import java.awt.Color;
@@ -56,7 +55,7 @@ public class VistaSaldoCuenta extends JPanel{
         panelInformativo = new JPanel(null);
         panelOperaciones = new JPanel(null);
         panelMovimientos = new JPanel(null);
-        //panelMovimiento = new PanelMovimiento("CFE CONTIGO MU","MOVIMIENTO BBVA","-435.0");
+       
     
         
         panelCabecera.setBounds(0,0,350,40);
@@ -65,7 +64,7 @@ public class VistaSaldoCuenta extends JPanel{
         panelOperaciones.setBounds(0,320, 350, 90);
         panelMovimientos.setBounds(0, 410,350, 500);
         
-        //panelMovimiento.setLocation(20,40);
+        
         
         panelCabecera.setBackground(Colores.AZUL_INTENSO);
         panelSaldo.setBackground(Color.WHITE);

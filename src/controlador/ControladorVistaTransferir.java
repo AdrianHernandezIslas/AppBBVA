@@ -13,6 +13,7 @@ import modelo.ModeloMovimiento;
 import modelo.ModeloSaldo;
 import vista.Vista;
 import vista.VistaDatosTransferencia;
+import vista.VistaNuevoDestinatarioTranseferencia;
 import vista.VistaSaldoCuenta;
 import vista.extras.PanelDestinatario;
 import vista.extras.PanelMovimiento;
@@ -21,12 +22,12 @@ import vista.extras.PanelMovimiento;
  *
  * @author adrian
  */
-public class ControladorTransferir extends MouseAdapter implements ActionListener{
+public class ControladorVistaTransferir extends MouseAdapter implements ActionListener{
     
     private final Vista vista;
     private VistaDatosTransferencia vistaDatosTransferencia;
 
-    public ControladorTransferir(Vista vista) {
+    public ControladorVistaTransferir(Vista vista) {
         this.vista = vista;
     }
     
@@ -38,20 +39,27 @@ public class ControladorTransferir extends MouseAdapter implements ActionListene
         vista.remove(vista.getScroll());
         if(vista.getVistaTransferir().getBtnSalir() == e.getSource()){
             vista.remove(vista.getVistaTransferir());
+            vista.setVistaSaldoCuenta(new VistaSaldoCuenta(vista));
             
         }else
         
-        if(vista.getVistaDatosTransferencia().getBtnAtras() == e.getSource()){
+        if(vista.getVistaDatosTransferencia() != null && vista.getVistaDatosTransferencia().getBtnAtras() == e.getSource()){
             vista.remove(vista.getVistaDatosTransferencia());
+            vista.setVistaSaldoCuenta(new VistaSaldoCuenta(vista));
             
         }else
         
-        if(vista.getVistaDatosTransferencia().getBtnTranseferir() == e.getSource()){
+        if(vista.getVistaDatosTransferencia() != null && vista.getVistaDatosTransferencia().getBtnTranseferir() == e.getSource()){
             procesarTransferencia();
             vista.remove(vista.getVistaDatosTransferencia());
+            vista.setVistaSaldoCuenta(new VistaSaldoCuenta(vista));
+        }else
+           
+        if(vista.getVistaTransferir().getBtnAgregarDestinatario() == e.getSource()){
+            vista.setVistaNuevoDestinatarioTranseferencia(new VistaNuevoDestinatarioTranseferencia(vista));
         }
         
-        vista.setVistaSaldoCuenta(new VistaSaldoCuenta(vista));
+        
         vista.update();
         
     }
@@ -68,7 +76,7 @@ public class ControladorTransferir extends MouseAdapter implements ActionListene
     
     private void procesarTransferencia(){
         double cantidad = Double.parseDouble(vista.getVistaDatosTransferencia().getCampoCantidad().getText());
-        PanelDestinatario destinatario = vista.getVistaDatosTransferencia().getPanelDestinatario();
+        
         if(ModeloSaldo.esPosible(cantidad)){
             ModeloSaldo.sutraerMonto(cantidad);
             ModeloMovimiento.agregarMovimiento(new PanelMovimiento("PAGO CUENTA","Transeferencia",String.valueOf(-cantidad))); 

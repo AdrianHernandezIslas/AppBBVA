@@ -9,7 +9,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import vista.Vista;
 import vista.VistaOperaConfiguraCuenta;
-import vista.VistaPagarSevicio;
+import vista.VistaPrincipal;
+import vista.VistaSevicio;
 import vista.VistaRetiro;
 import vista.VistaTransferir;
 
@@ -32,7 +33,7 @@ public class ControladorVistaSaldoCuenta implements ActionListener{
         vista.remove(vista.getScroll());
         
         if(vista.getVistaSaldoCuenta().getBtnAtras() == e.getSource()){
-            vista.setVistaPrincipal(vista.getVistaPrincipal());
+            vista.setVistaPrincipal(new VistaPrincipal(vista));
         }else
         
         if(vista.getVistaSaldoCuenta().getBtnRetiroSinTarjetas() == e.getSource()){
@@ -46,7 +47,7 @@ public class ControladorVistaSaldoCuenta implements ActionListener{
              
         if(vista.getVistaSaldoCuenta().getBtnPagarServicio() == e.getSource()){
             
-            vista.setVistaPagarSevicio(new VistaPagarSevicio(vista));
+            vista.setVistaSevicio(new VistaSevicio(vista));
         }else
         
         if(vista.getVistaSaldoCuenta().getBtnVerMas() == e.getSource()){

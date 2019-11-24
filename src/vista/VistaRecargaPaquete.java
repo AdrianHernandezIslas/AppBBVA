@@ -5,7 +5,6 @@
  */
 package vista;
 
-import com.sun.org.apache.xalan.internal.xsltc.compiler.util.StringStack;
 import controlador.ControladorVistaRecargaPaquete;
 import java.awt.Color;
 import java.awt.Font;
@@ -66,14 +65,16 @@ public class VistaRecargaPaquete extends JPanel{
         btnRecargar = new JButton("Recargar");
         
         btnSalir.addActionListener(controlador);
+        btnIconoTelefono.addActionListener(controlador);
+        btnRecargar.addActionListener(controlador);
         
         listaCompanias = new JComboBox(new String[]{"Telcel","Movistar","At&t","UNEFON"});
         listaMonto = new JComboBox(new String[]{"30","50","100","200"});
         
         etiquetaTitulo = new JLabel("Recarga y paquetes");
         etiquetaCuentaOrigen = new JLabel("CUENTA DE RETIRO");
-        etiquetaNumeros = new JLabel("0002AH8763");
-        etiquetaTerminacion = new JLabel("° 18763");
+        etiquetaNumeros = new JLabel("0001RV74662");
+        etiquetaTerminacion = new JLabel("° 74662");
         etiquetaSaldo = new JLabel("$ 1000.5");
         etiquetaDestinatario = new JLabel("PARA");
         etiquetaMiNumero = new JLabel("Mi numero");
@@ -176,5 +177,24 @@ public class VistaRecargaPaquete extends JPanel{
     public JButton getBtnIconoTelefono() {
         return btnIconoTelefono;
     }
+
+    public JTextField getCampoNumero() {
+        return campoNumero;
+    }
+
+    public JComboBox getListaCompanias() {
+        return listaCompanias;
+    }
+
+    public JComboBox getListaMonto() {
+        return listaMonto;
+    }
+
+    public JLabel getEtiquetaNumeroTelefono() {
+        return etiquetaNumeroTelefono;
+    }
+
+    
+    
     
 }

@@ -56,8 +56,8 @@ public class VistaRetiro extends JPanel{
         
         etiquetaTitulo = new JLabel("Retiro sin Tarjeta");
         etiquetaCuentaRetiro = new JLabel("CUENTA DE RETIRO");
-        etiquetaNumeros = new JLabel("0002AH8763");
-        etiquetaTerminacion = new JLabel("° 18763");
+        etiquetaNumeros = new JLabel("0001RV74662");
+        etiquetaTerminacion = new JLabel("° 74662");
         etiquetaSaldo = new JLabel("$ "+ModeloSaldo.getSaldo());
         etiquetaImporte = new JLabel("IMPORTE");
         etiquetaClaveRetiro = new JLabel("Clave de retiro (12 digitos)");

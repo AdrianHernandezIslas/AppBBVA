@@ -5,11 +5,10 @@
  */
 package vista;
 
-import controlador.ControladorTransferir;
+import controlador.ControladorVistaTransferir;
 import java.awt.Color;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
-import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -29,9 +28,9 @@ public class VistaDatosTransferencia extends JPanel{
     private JLabel etiquetaReferencia,etiquetaCantidad,etiquetaMensaje;
     private JTextField campoReferencia;
     private JTextField campoCantidad;
-    private final ControladorTransferir controlador;
+    private final ControladorVistaTransferir controlador;
 
-    public VistaDatosTransferencia(ControladorTransferir controlador) {
+    public VistaDatosTransferencia(ControladorVistaTransferir controlador) {
         super(null);
         this.controlador = controlador;
         
@@ -44,7 +43,6 @@ public class VistaDatosTransferencia extends JPanel{
     
     private void inicializarComponentes(){
         panelCabecera = new JPanel(null);
-        //panelDestinatario = new PanelDestinatario("Adrian", "Adrian Hernandez", "Tarjeta de debito", "1234 100 2234 6700");
         
         
         panelCabecera.setBounds(0,0,350,40);

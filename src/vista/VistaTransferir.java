@@ -5,12 +5,14 @@
  */
 package vista;
 
-import controlador.ControladorTransferir;
+import controlador.ControladorVistaTransferir;
 import java.awt.Color;
 import java.awt.Font;
+import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import modelo.ModeloDestinatarioTransferencia;
 import modelo.ModeloSaldo;
 import vista.extras.Colores;
 import vista.extras.Imagen;
@@ -28,8 +30,9 @@ public class VistaTransferir extends JPanel{
     private JPanel panelArriba,panelAgregarDestinatario,panelGuardados;
     private JButton btnSalir, btnAgregarDestinatario;
     private PanelDestinatario panelDestinatario;
+    private int posicionY = 30;
     private final Vista vista;
-    private ControladorTransferir controlador;
+    private ControladorVistaTransferir controlador;
 
     public VistaTransferir(Vista vista) {
         super(null);
@@ -42,7 +45,7 @@ public class VistaTransferir extends JPanel{
     
     private void inicializarComponentes(){
         
-        controlador = new ControladorTransferir(vista);
+        controlador = new ControladorVistaTransferir(vista);
         
         panelArriba = new JPanel(null);
         panelAgregarDestinatario = new JPanel(null);
@@ -59,18 +62,16 @@ public class VistaTransferir extends JPanel{
         panelGuardados.setBounds(0, 280,350, 225);
         panelGuardados.setBackground(Color.WHITE);
         
-        panelDestinatario = new PanelDestinatario("Adrian", "Adrian Hernandez", "Tarjeta de debito", "1234 100 2234 6700");
-        panelDestinatario.setLocation(20,30);
         
-        panelDestinatario.addMouseListener(controlador);
+        //panelDestinatario.addMouseListener(controlador);
         
         btnSalir = new JButton(new Imagen().getImagen("/imagenes/tache.png",30,30));
         btnAgregarDestinatario = new JButton(new Imagen().getImagen("/imagenes/addDestinatario.jpeg",40,40));
         
         etiquetaTitulo = new JLabel("Transferir");
         etiquetaCuentaOrigen = new JLabel("CUENTA DE ORIGEN");
-        etiquetaNumeros = new JLabel("0002AH8763");
-        etiquetaTerminacion = new JLabel("° 18763");
+        etiquetaNumeros = new JLabel("0001RV74662");
+        etiquetaTerminacion = new JLabel("° 74662");
         etiquetaSaldo = new JLabel("$ "+ModeloSaldo.getSaldo());
         etiquetaDestinatario = new JLabel("DESTINATARIO");
         etiquetaNuevo = new JLabel("Nuevo");
@@ -99,9 +100,11 @@ public class VistaTransferir extends JPanel{
         btnSalir.setBounds(10, 10, 30, 30);
         btnAgregarDestinatario.setBounds(20,50, 40, 40);
         
+        btnAgregarDestinatario.addActionListener(controlador);
+        
         btnSalir.addActionListener(controlador);
     }
-    
+
     private void agregarComponentes(){
         
         panelArriba.add(btnSalir);
@@ -116,11 +119,23 @@ public class VistaTransferir extends JPanel{
         panelAgregarDestinatario.add(etiquetaNuevo);
         
         panelGuardados.add(etiquetaGuardados);
-        panelGuardados.add(panelDestinatario);
+        agregarDestinatarios();
         
         add(panelArriba);
         add(panelAgregarDestinatario);
         add(panelGuardados);
+        
+    }
+    
+    private void agregarDestinatarios(){
+        ArrayList<PanelDestinatario> destinataros = ModeloDestinatarioTransferencia.getDestinatarios();
+        for (PanelDestinatario destinataro : destinataros) {
+            destinataro.setLocation(20,posicionY);
+            destinataro.addMouseListener(controlador);
+            panelGuardados.add(destinataro);
+            posicionY += 110;
+        }
+        
         
     }
 
@@ -128,6 +143,9 @@ public class VistaTransferir extends JPanel{
         return btnSalir;
     }
     
+    public JButton getBtnAgregarDestinatario() {
+        return btnAgregarDestinatario;
+    }
     
     
     

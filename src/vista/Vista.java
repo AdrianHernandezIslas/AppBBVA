@@ -42,10 +42,14 @@ public class Vista extends JFrame{
     private VistaSaldoCuenta vistaSaldoCuenta;
     private VistaRetiro vistaRetiro;
     private VistaTransferir vistaTransferir;
-    private VistaPagarSevicio vistaPagarSevicio;
+    private VistaSevicio vistaSevicio;
     private VistaOperaConfiguraCuenta vistaOperaConfiguraCuenta;
     private VistaRecargaPaquete vistaRecargaPaquete;
     private VistaDatosTransferencia vistaDatosTransferencia;
+    private VistaDatosPagoServicio vistaDatosPagoServicio;
+    private VistaNuevoDestinatarioTranseferencia vistaNuevoDestinatarioTranseferencia;
+    private VistaNuevoServicio vistaNuevoServicio;
+    private VistaEstadoDeCuenta vistaEstadoDeCuenta;
 
     public Vista() {
         super("App");
@@ -211,13 +215,13 @@ public class Vista extends JFrame{
         //SwingUtilities.updateComponentTreeUI(scroll);
     }
 
-    public VistaPagarSevicio getVistaPagarSevicio() {
-        return vistaPagarSevicio;
+    public VistaSevicio getVistaSevicio() {
+        return vistaSevicio;
     }
 
-    public void setVistaPagarSevicio(VistaPagarSevicio vistaPagarSevicio) {
-        this.vistaPagarSevicio = vistaPagarSevicio;
-        add(this.vistaPagarSevicio);
+    public void setVistaSevicio(VistaSevicio vistaSevicio) {
+        this.vistaSevicio = vistaSevicio;
+        add(this.vistaSevicio);
     }
 
     public VistaOperaConfiguraCuenta getVistaOperaConfiguraCuenta() {
@@ -242,9 +246,45 @@ public class Vista extends JFrame{
         return vistaDatosTransferencia;
     }
 
+    public VistaNuevoDestinatarioTranseferencia getVistaNuevoDestinatarioTranseferencia() {
+        return vistaNuevoDestinatarioTranseferencia;
+    }
+
+    public void setVistaNuevoDestinatarioTranseferencia(VistaNuevoDestinatarioTranseferencia vistaNuevoDestinatarioTranseferencia) {
+        this.vistaNuevoDestinatarioTranseferencia = vistaNuevoDestinatarioTranseferencia;
+        add(this.vistaNuevoDestinatarioTranseferencia);
+    } 
+
     public void setVistaDatosTransferencia(VistaDatosTransferencia vistaDatosTransferencia) {
         this.vistaDatosTransferencia = vistaDatosTransferencia;
         add(addScroll(this.vistaDatosTransferencia));
+    }
+
+    public VistaNuevoServicio getVistaNuevoServicio() {
+        return vistaNuevoServicio;
+    }
+
+    public void setVistaNuevoServicio(VistaNuevoServicio vistaNuevoServicio) {
+        this.vistaNuevoServicio = vistaNuevoServicio;
+        add(this.vistaNuevoServicio);
+    }
+
+    public VistaDatosPagoServicio getVistaDatosPagoServicio() {
+        return vistaDatosPagoServicio;
+    }
+
+    public void setVistaDatosPagoServicio(VistaDatosPagoServicio vistaDatosPagoServicio) {
+        this.vistaDatosPagoServicio = vistaDatosPagoServicio;
+        add(this.vistaDatosPagoServicio);
+    }
+
+    public VistaEstadoDeCuenta getVistaEstadoDeCuenta() {
+        return vistaEstadoDeCuenta;
+    }
+
+    public void setVistaEstadoDeCuenta(VistaEstadoDeCuenta vistaEstadoDeCuenta) {
+        this.vistaEstadoDeCuenta = vistaEstadoDeCuenta;
+        add(this.vistaEstadoDeCuenta);
     }
     
     public JLabel getEtiquetaMensaje() {

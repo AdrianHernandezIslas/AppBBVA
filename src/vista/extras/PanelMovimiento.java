@@ -14,7 +14,7 @@ import javax.swing.JPanel;
  * @author adrian
  */
 public class PanelMovimiento extends JPanel{
-    private String titulo,tipo,monto;
+    private final String titulo,tipo,monto;
     private JLabel etiquetaTitulo,etiquetaTipo,etiquetaMonto;
 
     public PanelMovimiento(String titulo, String tipo, String monto) {

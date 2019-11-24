@@ -5,30 +5,34 @@
  */
 package vista;
 
-import controlador.ControladorPagarServicio;
+import controlador.ControladorVistaServicio;
 import java.awt.Color;
 import java.awt.Font;
+import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import modelo.ModeloSaldo;
+import modelo.ModeloServicio;
 import vista.extras.Colores;
 import vista.extras.Imagen;
+import vista.extras.PanelServicio;
 
 /**
  *
  * @author adrian
  */
-public class VistaPagarSevicio extends JPanel{
+public class VistaSevicio extends JPanel{
     private JLabel etiquetaCuentaOrigen,etiquetaNumeros,etiquetaTerminacion;
     private JLabel etiquetaSaldo,etiquetaTitulo,etiquetaDestinatario,
                    etiquetaNuevo,etiquetaGuardados;
     private JButton btnSalir, btnAgregarServicio;
     private JPanel panelArriba,panelAgregarServicio,panelGuardados;
-    private ControladorPagarServicio controlador;
+    private ControladorVistaServicio controlador;
+    private int posicionY = 30;
     private final Vista vista;
 
-    public VistaPagarSevicio(Vista vista) {
+    public VistaSevicio(Vista vista) {
         super(null);
         this.vista = vista;
         setBounds(0,0,350,550);
@@ -38,7 +42,7 @@ public class VistaPagarSevicio extends JPanel{
     }
     
     private void inicializarComponentes() {
-        controlador = new ControladorPagarServicio(vista);
+        controlador = new ControladorVistaServicio(vista);
         
         panelArriba = new JPanel(null);
         panelAgregarServicio = new JPanel(null);
@@ -58,8 +62,8 @@ public class VistaPagarSevicio extends JPanel{
         
         etiquetaTitulo = new JLabel("Pagar servicio");
         etiquetaCuentaOrigen = new JLabel("CUENTA DE RETIRO");
-        etiquetaNumeros = new JLabel("0002AH8763");
-        etiquetaTerminacion = new JLabel("° 18763");
+        etiquetaNumeros = new JLabel("0001RV74662");
+        etiquetaTerminacion = new JLabel("° 74662");
         etiquetaSaldo = new JLabel("$ "+ModeloSaldo.getSaldo());
         etiquetaDestinatario = new JLabel("SERVICIO");
         etiquetaNuevo = new JLabel("Nuevo servicio");
@@ -87,6 +91,7 @@ public class VistaPagarSevicio extends JPanel{
         btnAgregarServicio.setBounds(20,50, 40, 40);
         
         btnSalir.addActionListener(controlador);
+        btnAgregarServicio.addActionListener(controlador);
         
     }
 
@@ -104,10 +109,21 @@ public class VistaPagarSevicio extends JPanel{
         panelAgregarServicio.add(etiquetaNuevo);
         
         panelGuardados.add(etiquetaGuardados);
+        agregarContactos();
         
         add(panelArriba);
         add(panelAgregarServicio);
         add(panelGuardados);
+    }
+    
+    private void agregarContactos(){
+        ArrayList<PanelServicio> servicios = ModeloServicio.getServicios();
+        for (PanelServicio servicio : servicios) {
+            servicio.setLocation(30, posicionY);
+            servicio.addMouseListener(controlador);
+            panelGuardados.add(servicio);
+            posicionY += 80;
+        }
     }
 
     public JButton getBtnSalir() {

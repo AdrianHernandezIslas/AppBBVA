@@ -71,10 +71,10 @@ public class VistaPrincipal extends JPanel{
         etiquetaIconoNombre = new JLabel(new Imagen().getImagen("/imagenes/circle.png",40,40));
         etiquetaCuentaPesos = new JLabel("CUENTA EN PESOS");
         etiquetaSaludo = new JLabel("Buenos dias, ROBERTO");
-        etiquetaNumeros = new JLabel("0002AH8763");
+        etiquetaNumeros = new JLabel("0001RV74662");
         etiquetaSaldo = new JLabel("$ "+ModeloSaldo.getSaldo());
         etiquetaMsjSaldoD = new JLabel("Saldo disponible");
-        etiquetaTerminacion = new JLabel("° 18763");
+        etiquetaTerminacion = new JLabel("° 74662");
         etiquetaFooter = new JLabel(new Imagen().getImagen("/imagenes/footerr.jpeg",350,35));
         
         etiquetaSaludo.setBounds(110,50,135,20);

@@ -15,7 +15,7 @@ import javax.swing.JPanel;
  * @author adrian
  */
 public class PanelDestinatario extends JPanel{
-    private String alias,nombre,tipoReferencia,referencia;
+    private final String alias,nombre,tipoReferencia,referencia;
     private JLabel etiquetaAlias,etiquetaNombre,etiquetaTipoReferencia,
                    etiquetaReferencia,etiquetaLetra;
 

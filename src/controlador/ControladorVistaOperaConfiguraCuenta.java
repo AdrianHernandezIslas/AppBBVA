@@ -8,7 +8,8 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import vista.Vista;
-import vista.VistaPagarSevicio;
+import vista.VistaEstadoDeCuenta;
+import vista.VistaSevicio;
 import vista.VistaRecargaPaquete;
 import vista.VistaRetiro;
 import vista.VistaTransferir;
@@ -41,11 +42,15 @@ public class ControladorVistaOperaConfiguraCuenta implements ActionListener{
         }else
         
         if(vista.getVistaOperaConfiguraCuenta().getBtnPagarServicio() == e.getSource()){
-             vista.setVistaPagarSevicio(new VistaPagarSevicio(vista));
+             vista.setVistaSevicio(new VistaSevicio(vista));
         }else
         
         if(vista.getVistaOperaConfiguraCuenta().getBtnRecargas() == e.getSource()){
             vista.setVistaRecargaPaquete(new VistaRecargaPaquete(vista));
+        }else
+            
+        if(vista.getVistaOperaConfiguraCuenta().getBtnEstadoCuenta() == e.getSource()){
+            vista.setVistaEstadoDeCuenta(new VistaEstadoDeCuenta(vista));
         }
         
         vista.update();
