@@ -28,7 +28,7 @@ public class VistaNuevoDestinatarioTranseferencia extends JPanel{
     private JTextField campoReferencia,campoAlias,campoNombre;
     private JComboBox listaTipoRefenrecia;
     private ControladorVistaNuevoDestinatarioTransferencia controlador;
-    private Vista vista;
+    private final Vista vista;
 
     public VistaNuevoDestinatarioTranseferencia(Vista vista) {
         super(null);

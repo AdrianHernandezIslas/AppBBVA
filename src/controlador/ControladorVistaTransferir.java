@@ -18,7 +18,8 @@ import vista.VistaSaldoCuenta;
 import vista.extras.PanelDestinatario;
 import vista.extras.PanelMovimiento;
 
-/**
+/**;
+
  *
  * @author adrian
  */

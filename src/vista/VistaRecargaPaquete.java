@@ -78,7 +78,7 @@ public class VistaRecargaPaquete extends JPanel{
         etiquetaSaldo = new JLabel("$ 1000.5");
         etiquetaDestinatario = new JLabel("PARA");
         etiquetaMiNumero = new JLabel("Mi numero");
-        etiquetaNumeroTelefono = new JLabel("9581065616");
+        etiquetaNumeroTelefono = new JLabel("9511296815");
         etiquetaNuevo = new JLabel("Nuevo");
         etiquetaGuardados = new JLabel("OTRO NUMERO");
         etiquetaTelefono = new JLabel("Numero");

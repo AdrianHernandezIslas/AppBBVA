@@ -26,7 +26,7 @@ public class VistaPrincipal extends JPanel{
                    etiquetaSaldo,etiquetaMsjSaldoD,etiquetaTerminacion;
     private JLabel etiquetaIconoNombre,etiquetaFooter;
     private ControladorVistaPrincipal controlador;
-    private Vista vista;
+    private final Vista vista;
     
     public VistaPrincipal(Vista vista) {
         super();
@@ -63,10 +63,6 @@ public class VistaPrincipal extends JPanel{
         btnPagarServicio.setBounds(128,90,80,80);
         btnRetiroSinTarjetas.setBounds(218,90,80,90);
         btnFlecha.setBounds(148,180,40,30);
-        
-        //btnTransferir.addActionListener(controlador);
-        //btnOportunidades.addActionListener(controlador);
-        //btnRetiroSinTarjetas.addActionListener(controlador);
         
         etiquetaIconoNombre = new JLabel(new Imagen().getImagen("/imagenes/circle.png",40,40));
         etiquetaCuentaPesos = new JLabel("CUENTA EN PESOS");

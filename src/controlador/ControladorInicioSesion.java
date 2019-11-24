@@ -18,7 +18,7 @@ import vista.VistaPrincipal;
  */
 public class ControladorInicioSesion extends MouseAdapter implements ActionListener{
     
-    private Vista vistaInicio;
+    private final Vista vistaInicio;
     private final String contrasenia = "12345";
     private int contador;
 
